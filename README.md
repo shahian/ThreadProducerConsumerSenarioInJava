@@ -1,7 +1,8 @@
 # ThreadProducerConsumerSenarioInJava
 ### content:
 1. [Definition](#Definition)
-2. [CodeExplanation](#CodeExplanation)
+2. [Reson For Use](#reson)
+3. [CodeExplanation](#CodeExplanation)
 
 ## Definition
 In concurrent programming, a producer-consumer pattern is a common paradigm for solving inter-thread communication problems. It involves two types of threads: producers and consumers.
@@ -13,6 +14,11 @@ Consumers, on the other hand, are threads that remove data or work from the shar
 The producer and consumer threads work concurrently, with the producer thread adding items to the queue while the consumer thread waits for items to become available in the queue. Once an item becomes available, the consumer thread consumes it, allowing the producer thread to add more items to the queue.
 
 This pattern is useful in scenarios where there is a clear separation between the generation and consumption of data or work, and where the rate of generation and consumption may be different. By using a shared data structure or queue, producers and consumers can work asynchronously and avoid contention for shared resources, leading to more efficient and scalable code.
+
+## reson
+We use producer and consumer threads to solve the problem of inter-thread communication, which can arise when two or more threads in a program need to share data or coordinate their activities. In a multi-threaded program, different threads may execute concurrently, meaning that they may overlap and interfere with each other's work. If two or more threads need to access the same data structure or resource at the same time, this can lead to race conditions, synchronization issues, and other types of errors that can cause the program to behave incorrectly or crash.
+
+The producer-consumer pattern provides a way to avoid these issues by using a shared data structure or queue to transfer data between threads. The producer thread generates data or work and adds it to the queue, while the consumer thread removes data or work from the queue and processes it. By using a queue, we ensure that the producer and consumer threads do not interfere with each other's work, and that each thread operates at its own pace. This allows us to write concurrent code that is correct, efficient, and scalable, even in scenarios where different threads need to access the same data or resource.
 
 ## CodeExplanation
 This is a simple Java program that demonstrates the use of the BlockingQueue interface and the LinkedBlockingQueue implementation for inter-thread communication.
